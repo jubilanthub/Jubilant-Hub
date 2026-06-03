@@ -1,40 +1,129 @@
-<header>
-    <img src="logo.png" alt="Jubilant Hub Logo" class="logo">
-    <h1>Jubilant Hub</h1>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jubilant Hub</title>
 
-<section class="hero">
-    <h2>Style. Quality. Confidence.</h2>
-    <p>
-        Discover premium clothing and footwear designed to help you look your best every day.
-    </p>
-    <a href="#" class="btn">Shop Collection</a>
-</section>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-<section class="section">
-    <h2 style="color:#D4AF37;">Our Collections</h2>
-    <br>
-    <div class="services">
-        <div class="card">Men's Clothing</div>
-        <div class="card">Women's Clothing</div>
-        <div class="card">Sneakers</div>
-        <div class="card">Formal Shoes</div>
-        <div class="card">Casual Wear</div>
-        <div class="card">Fashion Accessories</div>
+body{
+    background:#000;
+    color:#fff;
+}
+
+.header{
+    background:#000;
+    border-bottom:2px solid #D4AF37;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+}
+
+.logo{
+    height:60px;
+}
+
+.brand{
+    color:#D4AF37;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.hero{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h1{
+    color:#D4AF37;
+    margin-bottom:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    padding:10px;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card h2{
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:2px solid #D4AF37;
+    margin-top:20px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <img src="logo.png" class="logo">
+    <div class="brand">Jubilant Hub</div>
+</div>
+
+<div class="hero">
+    <h1>Premium Fashion Collection</h1>
+    <p>Discover quality clothing and footwear for every style.</p>
+</div>
+
+<div class="grid">
+
+    <div class="card">
+        <img src="men.jpg">
+        <h2>MEN</h2>
     </div>
-</section>
 
-<section class="section">
-    <h2 style="color:#D4AF37;">Why Choose Jubilant Hub?</h2>
-    <br>
-    <p>
-        We provide stylish, quality clothing and footwear at affordable prices,
-        giving our customers a premium shopping experience.
-    </p>
-</section>
+    <div class="card">
+        <img src="women.jpg">
+        <h2>WOMEN</h2>
+    </div>
+
+    <div class="card">
+        <img src="shoes.jpg">
+        <h2>SHOES</h2>
+    </div>
+
+    <div class="card">
+        <img src="new.jpg">
+        <h2>NEW ARRIVALS</h2>
+    </div>
+
+</div>
 
 <footer>
-    <h3>Contact Us</h3>
-    <p>WhatsApp: 073 217 6610</p>
-    <p>&copy; 2026 Jubilant Hub. All Rights Reserved.</p>
+    <p>WhatsApp: 063 727 2001</p>
+    <p>© 2026 Jubilant Hub. All Rights Reserved.</p>
 </footer>
+
+</body>
+</html>
