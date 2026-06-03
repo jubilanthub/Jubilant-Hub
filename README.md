@@ -35,6 +35,6 @@
 
 <footer>
     <h3>Contact Us</h3>
-    <p>WhatsApp: 063 727 2001</p>
+    <p>WhatsApp: 073 217 6610</p>
     <p>&copy; 2026 Jubilant Hub. All Rights Reserved.</p>
 </footer>
