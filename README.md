@@ -22,56 +22,70 @@ body{
     background:#000;
     border-bottom:2px solid #D4AF37;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    padding:15px;
+    flex-direction:column;
+    padding:20px;
 }
 
 .logo{
-    height:60px;
+    height:100px;
+    margin-bottom:10px;
 }
 
 .brand{
     color:#D4AF37;
-    font-size:28px;
+    font-size:32px;
     font-weight:bold;
 }
 
 .hero{
     text-align:center;
-    padding:40px 20px;
+    padding:50px 20px;
 }
 
 .hero h1{
     color:#D4AF37;
-    margin-bottom:10px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#D4AF37;
+    color:#000;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.section-title{
+    text-align:center;
+    color:#D4AF37;
+    margin:30px 0;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    padding:10px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    padding:20px;
 }
 
 .card{
-    position:relative;
-    overflow:hidden;
+    background:#111;
+    border:1px solid #D4AF37;
     border-radius:10px;
-}
-
-.card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
-
-.card h2{
-    position:absolute;
-    bottom:15px;
-    left:15px;
-    color:white;
-    font-size:24px;
+    padding:30px;
+    text-align:center;
+    font-size:20px;
     font-weight:bold;
 }
 
@@ -79,49 +93,45 @@ footer{
     text-align:center;
     padding:30px;
     border-top:2px solid #D4AF37;
-    margin-top:20px;
+    margin-top:30px;
+}
+
+footer p{
+    margin:8px 0;
 }
 </style>
-
 </head>
+
 <body>
 
-<div class="header">
-    <img src="logo.png" class="logo">
+<header class="header">
+    <img src="Logo png.png" alt="Jubilant Hub Logo" class="logo">
     <div class="brand">Jubilant Hub</div>
-</div>
+</header>
 
-<div class="hero">
+<section class="hero">
     <h1>Premium Fashion Collection</h1>
-    <p>Discover quality clothing and footwear for every style.</p>
-</div>
+    <p>
+        Welcome to Jubilant Hub. Discover quality clothing, footwear,
+        and fashion essentials designed for style, comfort, and confidence.
+    </p>
+    <a href="https://wa.me/27732176610" class="btn">Shop on WhatsApp</a>
+</section>
+
+<h2 class="section-title">Our Collections</h2>
 
 <div class="grid">
-
-    <div class="card">
-        <img src="men.jpg">
-        <h2>MEN</h2>
-    </div>
-
-    <div class="card">
-        <img src="women.jpg">
-        <h2>WOMEN</h2>
-    </div>
-
-    <div class="card">
-        <img src="shoes.jpg">
-        <h2>SHOES</h2>
-    </div>
-
-    <div class="card">
-        <img src="new.jpg">
-        <h2>NEW ARRIVALS</h2>
-    </div>
-
+    <div class="card">Men's Clothing</div>
+    <div class="card">Women's Clothing</div>
+    <div class="card">Sneakers</div>
+    <div class="card">Formal Shoes</div>
+    <div class="card">Casual Wear</div>
+    <div class="card">Fashion Accessories</div>
 </div>
 
 <footer>
-    <p>WhatsApp: 063 727 2001</p>
+    <p><strong>WhatsApp:</strong> 073 217 6610</p>
+    <p><strong>Email:</strong> malulekainternetcafe@gmail.com</p>
     <p>© 2026 Jubilant Hub. All Rights Reserved.</p>
 </footer>
 
