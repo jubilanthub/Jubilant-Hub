@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jubilant Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body{
+            margin:0;
+            font-family:Arial,sans-serif;
+            background:#111;
+            color:white;
+        }
+
+        header{
+            background:black;
+            color:gold;
+            text-align:center;
+            padding:20px;
+        }
+
+        nav{
+            background:#222;
+            padding:10px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:10px;
+        }
+
+        .hero{
+            text-align:center;
+            padding:50px 20px;
+        }
+
+        .btn{
+            background:gold;
+            color:black;
+            padding:12px 20px;
+            text-decoration:none;
+            border-radius:5px;
+            font-weight:bold;
+        }
+
+        .products{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:20px;
+            padding:20px;
+        }
+
+        .card{
+            background:#222;
+            padding:15px;
+            border-radius:10px;
+            text-align:center;
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            background:black;
+            margin-top:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Jubilant Hub</h1>
+    <p>Everything You Need, One Hub</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Clothing</a>
+    <a href="#">Shoes</a>
+    <a href="#">Electronics</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+    <h2>Welcome to Jubilant Hub</h2>
+    <p>Shop clothing, shoes, electronics and more.</p>
+
+    <a class="btn"
+       href="https://wa.me/27732176610">
+       Order on
