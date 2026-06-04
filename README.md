@@ -14,7 +14,7 @@
 }
 
 body{
-    background:#000;
+    background:#0b0b0b;
     color:#fff;
 }
 
@@ -29,16 +29,25 @@ body{
     justify-content:center;
     align-items:center;
     z-index:9999;
+    text-align:center;
 }
 
 #loader img{
-    width:140px;
-    animation: pulse 1.5s infinite;
+    width:180px;
+    animation:pulse 1.5s infinite;
 }
 
-#loader h2{
+#loader h1{
     color:#D4AF37;
     margin-top:20px;
+    font-size:28px;
+}
+
+#loader p{
+    margin-top:10px;
+    color:#D4AF37;
+    font-size:14px;
+    letter-spacing:1px;
 }
 
 @keyframes pulse{
@@ -47,117 +56,123 @@ body{
     100%{transform:scale(1);}
 }
 
-/* ================= MAIN SITE ================= */
+/* MAIN SITE */
 #main{
     display:none;
 }
 
-/* HEADER */
-header{
-    text-align:center;
-    padding:20px;
+/* TOP BAR */
+.topbar{
+    position:sticky;
+    top:0;
     background:#111;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     border-bottom:2px solid #D4AF37;
 }
 
-header img{
-    width:100px;
+.topbar img{
+    width:50px;
 }
 
-header h1{
+.topbar h1{
+    font-size:18px;
     color:#D4AF37;
-    font-size:2.5rem;
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin:0 10px;
 }
 
 /* HERO */
 .hero{
     text-align:center;
-    padding:50px 20px;
+    padding:40px 20px;
     background:#111;
 }
 
 .hero h2{
     color:#D4AF37;
-    font-size:35px;
+    font-size:28px;
 }
 
 /* SEARCH */
 #searchInput{
     width:90%;
-    max-width:500px;
     padding:12px;
-    margin:20px auto;
+    margin:15px auto;
     display:block;
-    border-radius:5px;
+    border-radius:20px;
     border:none;
 }
 
-/* GALLERY */
+/* PRODUCTS */
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
-    padding:15px;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    padding:10px;
 }
 
 .product{
-    background:#111;
-    border:1px solid #D4AF37;
+    background:#151515;
     border-radius:10px;
     overflow:hidden;
+    transition:0.3s;
+}
+
+.product:hover{
+    transform:scale(1.03);
 }
 
 .product img{
     width:100%;
+    height:180px;
+    object-fit:cover;
 }
 
 .info{
     padding:10px;
-    text-align:center;
 }
 
 .price{
     color:#D4AF37;
-    font-size:20px;
+    font-weight:bold;
 }
 
 button{
-    margin-top:8px;
-    padding:10px;
     width:100%;
+    padding:10px;
     border:none;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-.add{
     background:#D4AF37;
+    color:#000;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
 }
 
+/* CART */
+.cart{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#D4AF37;
+    color:#000;
+    padding:10px 15px;
+    border-radius:20px;
+}
+
+/* WHATSAPP */
 .whatsapp{
-    background:#25D366;
-    color:#fff;
-}
-
-/* FLOAT */
-.floating-whatsapp{
     position:fixed;
     right:15px;
     bottom:15px;
     width:60px;
     height:60px;
     background:#25D366;
-    color:#fff;
     border-radius:50%;
     text-align:center;
     line-height:60px;
     font-size:28px;
+    color:#fff;
     text-decoration:none;
 }
 </style>
@@ -165,65 +180,74 @@ button{
 
 <body>
 
-<!-- LOADER SCREEN -->
+<!-- LOADER -->
 <div id="loader">
     <img src="logo png.png" alt="Logo">
-    <h2>MM VISION HUB</h2>
-    <p>Loading Store...</p>
+
+    <h1>MM VISION HUB</h1>
+
+    <p>Michael Maluleka Vision Hub</p>
+
+    <p style="margin-top:15px;color:#aaa;">
+        Loading your fashion store...
+    </p>
 </div>
 
-<!-- MAIN WEBSITE -->
+<!-- MAIN -->
 <div id="main">
 
-<header>
+<div class="topbar">
     <img src="logo png.png">
     <h1>MM VISION HUB</h1>
-    <nav>
-        <a href="#gallery">Shop</a>
-        <a href="#about">About</a>
-    </nav>
-</header>
+</div>
 
-<section class="hero">
-    <h2>New Women's Collection</h2>
-    <p>Affordable Fashion Delivered Nationwide</p>
-</section>
+<div class="hero">
+    <h2>NEW WOMEN'S COLLECTION</h2>
+</div>
 
-<input type="text" id="searchInput" placeholder="Search Dresses..." onkeyup="searchProducts()">
+<input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
 
 <div class="gallery" id="gallery"></div>
+
+<div class="cart">
+🛒 Items: <span id="cartCount">0</span>
+</div>
+
+<a href="https://wa.me/27732176610" class="whatsapp">💬</a>
 
 </div>
 
 <script>
 
-/* ============ LOADER TIMER ============ */
+/* LOADER TIMER (6 SECONDS) */
 setTimeout(()=>{
     document.getElementById("loader").style.display="none";
     document.getElementById("main").style.display="block";
-}, 5000);
+},6000);
 
-/* ============ PRODUCTS ============ */
-const gallery = document.getElementById("gallery");
+/* PRODUCTS */
+let cart=0;
+const gallery=document.getElementById("gallery");
 
 for(let i=1;i<=80;i++){
-    gallery.innerHTML += `
+    gallery.innerHTML+=`
     <div class="product">
         <img src="women${i}.png">
         <div class="info">
             <h3>Dress ${i}</h3>
             <p class="price">R150</p>
 
-            <button class="add" onclick="order(${i})">
-                Buy Now
-            </button>
+            <button onclick="buy(${i})">Buy Now</button>
         </div>
     </div>`;
 }
 
-function order(i){
-    let msg = "Hello MM VISION HUB, I want Dress " + i;
-    window.open("https://wa.me/27732176610?text=" + encodeURIComponent(msg));
+function buy(i){
+    cart++;
+    document.getElementById("cartCount").innerText=cart;
+
+    let msg="Hello MM VISION HUB, I want Dress "+i;
+    window.open("https://wa.me/27732176610?text="+encodeURIComponent(msg));
 }
 
 /* SEARCH */
@@ -233,13 +257,12 @@ function searchProducts(){
 
     for(let i=0;i<products.length;i++){
         let title=products[i].getElementsByTagName("h3")[0];
-        products[i].style.display =
-        title.innerText.toUpperCase().includes(input) ? "" : "none";
+        products[i].style.display=
+        title.innerText.toUpperCase().includes(input)?"":"none";
     }
 }
-</script>
 
-<a href="https://wa.me/27732176610" class="floating-whatsapp">💬</a>
+</script>
 
 </body>
 </html>
