@@ -61,6 +61,25 @@ body{
     display:none;
 }
 
+/* TOP INFO BAR (NEW ADDED) */
+.topinfo{
+    background:#111;
+    padding:15px;
+    text-align:center;
+    border-bottom:2px solid #D4AF37;
+}
+
+.topinfo h2{
+    color:#D4AF37;
+    margin-bottom:5px;
+}
+
+.topinfo p{
+    font-size:13px;
+    color:#ccc;
+    line-height:1.6;
+}
+
 /* TOP BAR */
 .topbar{
     position:sticky;
@@ -183,19 +202,33 @@ button{
 <!-- LOADER -->
 <div id="loader">
     <img src="logo png.png" alt="Logo">
-
     <h1>MM VISION HUB</h1>
-
     <p>Michael Maluleka Vision Hub</p>
-
-    <p style="margin-top:15px;color:#aaa;">
-        Loading your fashion store...
-    </p>
+    <p style="margin-top:10px;color:#aaa;">Loading your fashion store...</p>
 </div>
 
 <!-- MAIN -->
 <div id="main">
 
+<!-- TOP INFO (ADDED: BANK + ABOUT + TERMS) -->
+<div class="topinfo">
+    <h2>Banking Details</h2>
+    <p>
+        MR KM MALULEKA<br>
+        CAPITEC<br>
+        2189801660
+    </p>
+
+    <p style="margin-top:10px;">
+        <strong>About Us:</strong> MM Vision Hub is an online clothing store offering affordable women's fashion with nationwide delivery.
+    </p>
+
+    <p style="margin-top:10px;">
+        <strong>Terms:</strong> Payment before delivery. Proof of payment must be sent via WhatsApp. Delivery takes 3–5 working days.
+    </p>
+</div>
+
+<!-- TOP BAR -->
 <div class="topbar">
     <img src="logo png.png">
     <h1>MM VISION HUB</h1>
