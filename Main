@@ -20,30 +20,18 @@ body{
 
 header{
     text-align:center;
-    padding:25px;
+    padding:30px;
+    background:#111;
+    border-bottom:2px solid #D4AF37;
 }
 
 header h1{
     color:#D4AF37;
-    font-size:2.5rem;
+    font-size:3rem;
 }
 
 header p{
-    color:#fff;
     margin-top:10px;
-}
-
-.back{
-    display:block;
-    width:220px;
-    margin:20px auto;
-    text-align:center;
-    background:#D4AF37;
-    color:#000;
-    text-decoration:none;
-    padding:12px;
-    border-radius:5px;
-    font-weight:bold;
 }
 
 .gallery{
@@ -96,6 +84,16 @@ header p{
     color:black;
 }
 
+.section{
+    padding:30px;
+    text-align:center;
+}
+
+.section h2{
+    color:#D4AF37;
+    margin-bottom:15px;
+}
+
 footer{
     text-align:center;
     padding:30px;
@@ -109,49 +107,73 @@ footer{
 
 <header>
     <h1>MM VISION HUB</h1>
-    <p>Fashion Dresses • R150 Each • Nationwide Delivery</p>
+    <p>Women's Fashion • R150 Each • Nationwide Delivery</p>
 </header>
 
-<a href="index.html" class="back">← Back to Home</a>
+<div class="gallery" id="gallery"></div>
 
-<div class="gallery">
+<script>
+const gallery = document.getElementById("gallery");
 
+for(let i = 1; i <= 80; i++){
+    gallery.innerHTML += `
     <div class="product">
-        <img src="women1.png" alt="Dress 1">
+        <img src="women${i}.png" alt="Dress ${i}">
         <div class="info">
-            <h3>Dress 1</h3>
+            <h3>Dress ${i}</h3>
             <p class="price">R150</p>
-            <a class="btn whatsapp" href="https://wa.me/27732176610?text=Hi%20MM%20VISION%20HUB,%20I%20want%20Dress%201">Order on WhatsApp</a>
-            <a class="btn call" href="tel:0732176610">Call Now</a>
-        </div>
-    </div>
 
-    <div class="product">
-        <img src="women2.png" alt="Dress 2">
-        <div class="info">
-            <h3>Dress 2</h3>
-            <p class="price">R150</p>
-            <a class="btn whatsapp" href="https://wa.me/27732176610?text=Hi%20MM%20VISION%20HUB,%20I%20want%20Dress%202">Order on WhatsApp</a>
-            <a class="btn call" href="tel:0732176610">Call Now</a>
-        </div>
-    </div>
+            <a class="btn whatsapp"
+            href="https://wa.me/27732176610?text=Hello%20MM%20VISION%20HUB,%20I%20would%20like%20to%20order%20Dress%20${i}">
+            Order on WhatsApp
+            </a>
 
-    <div class="product">
-        <img src="women3.png" alt="Dress 3">
-        <div class="info">
-            <h3>Dress 3</h3>
-            <p class="price">R150</p>
-            <a class="btn whatsapp" href="https://wa.me/27732176610?text=Hi%20MM%20VISION%20HUB,%20I%20want%20Dress%203">Order on WhatsApp</a>
-            <a class="btn call" href="tel:0732176610">Call Now</a>
+            <a class="btn call" href="tel:0732176610">
+            Call Now
+            </a>
         </div>
-    </div>
+    </div>`;
+}
+</script>
 
-</div>
+<section class="section">
+    <h2>About Us</h2>
+    <p>
+        MM VISION HUB is an online clothing store providing affordable,
+        stylish and quality women's fashion with delivery across South Africa.
+    </p>
+</section>
+
+<section class="section">
+    <h2>Delivery Information</h2>
+    <p><strong>Mapela Delivery:</strong> R40</p>
+    <br>
+    <p><strong>PAXI Standard Plastic:</strong> R110</p>
+    <p>Delivery Time: 3 - 5 Working Days</p>
+    <br>
+    <p><strong>PAXI Large Plastic:</strong> R140</p>
+    <p>Delivery Time: 3 - 5 Working Days</p>
+</section>
+
+<section class="section">
+    <h2>Banking Details</h2>
+    <p><strong>Bank:</strong> Capitec</p>
+    <p><strong>Account Name:</strong> Mr KM Maluleka</p>
+    <p><strong>Account Number:</strong> 2189801660</p>
+</section>
+
+<section class="section">
+    <h2>Terms & Conditions</h2>
+    <p>Payment must be made before delivery.</p>
+    <p>Proof of payment must be sent via WhatsApp.</p>
+    <p>Delivery charges apply.</p>
+    <p>Delivery may take 3 - 5 working days.</p>
+    <p>By placing an order, you agree to these terms.</p>
+</section>
 
 <footer>
     <h3>MM VISION HUB</h3>
     <p>WhatsApp: 073 217 6610</p>
-    <p>Call: 073 217 6610</p>
     <p>Nationwide Delivery Available</p>
 </footer>
 
