@@ -117,7 +117,7 @@ footer{
 <div class="gallery">
 
     <div class="product">
-        <img src="images/Women1.png" alt="Dress 1">
+        <img src="women1.png" alt="Dress 1">
         <div class="info">
             <h3>Dress 1</h3>
             <p class="price">R150</p>
@@ -127,7 +127,7 @@ footer{
     </div>
 
     <div class="product">
-        <img src="images/Women2.png" alt="Dress 2">
+        <img src="women2.png" alt="Dress 2">
         <div class="info">
             <h3>Dress 2</h3>
             <p class="price">R150</p>
@@ -137,7 +137,7 @@ footer{
     </div>
 
     <div class="product">
-        <img src="images/Women3.png" alt="Dress 3">
+        <img src="women3.png" alt="Dress 3">
         <div class="info">
             <h3>Dress 3</h3>
             <p class="price">R150</p>
@@ -145,8 +145,6 @@ footer{
             <a class="btn call" href="tel:0732176610">Call Now</a>
         </div>
     </div>
-
-    <!-- Continue the same pattern for Women4.png up to Women50.png -->
 
 </div>
 
