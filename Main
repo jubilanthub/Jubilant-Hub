@@ -1,92 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Jubilant Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MM VISION HUB - Women's Clothing</title>
 
-    <style>
-        body{
-            margin:0;
-            font-family:Arial,sans-serif;
-            background:#111;
-            color:white;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-        header{
-            background:black;
-            color:gold;
-            text-align:center;
-            padding:20px;
-        }
+body{
+    background:#000;
+    color:#fff;
+}
 
-        nav{
-            background:#222;
-            padding:10px;
-            text-align:center;
-        }
+header{
+    text-align:center;
+    padding:25px;
+}
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:10px;
-        }
+header h1{
+    color:#D4AF37;
+    font-size:2.5rem;
+}
 
-        .hero{
-            text-align:center;
-            padding:50px 20px;
-        }
+header p{
+    color:#fff;
+    margin-top:10px;
+}
 
-        .btn{
-            background:gold;
-            color:black;
-            padding:12px 20px;
-            text-decoration:none;
-            border-radius:5px;
-            font-weight:bold;
-        }
+.back{
+    display:block;
+    width:220px;
+    margin:20px auto;
+    text-align:center;
+    background:#D4AF37;
+    color:#000;
+    text-decoration:none;
+    padding:12px;
+    border-radius:5px;
+    font-weight:bold;
+}
 
-        .products{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-            gap:20px;
-            padding:20px;
-        }
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    padding:20px;
+}
 
-        .card{
-            background:#222;
-            padding:15px;
-            border-radius:10px;
-            text-align:center;
-        }
+.product{
+    background:#111;
+    border:1px solid #D4AF37;
+    border-radius:10px;
+    overflow:hidden;
+}
 
-        footer{
-            text-align:center;
-            padding:20px;
-            background:black;
-            margin-top:20px;
-        }
-    </style>
+.product img{
+    width:100%;
+    display:block;
+}
+
+.info{
+    padding:15px;
+    text-align:center;
+}
+
+.price{
+    color:#D4AF37;
+    font-size:24px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.btn{
+    display:block;
+    text-decoration:none;
+    padding:12px;
+    margin-top:10px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+}
+
+.call{
+    background:#D4AF37;
+    color:black;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #D4AF37;
+    margin-top:30px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Jubilant Hub</h1>
-    <p>Everything You Need, One Hub</p>
+    <h1>MM VISION HUB</h1>
+    <p>Fashion Dresses • R150 Each • Nationwide Delivery</p>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Clothing</a>
-    <a href="#">Shoes</a>
-    <a href="#">Electronics</a>
-    <a href="#">Contact</a>
-</nav>
+<a href="index.html" class="back">← Back to Home</a>
 
-<section class="hero">
-    <h2>Welcome to Jubilant Hub</h2>
-    <p>Shop clothing, shoes, electronics and more.</p>
+<div class="gallery">
 
-    <a class="btn"
-       href="https://wa.me/27732176610">
-       Order on
+    <div class="product">
+        <img src="women1.png" alt="Dress 1">
+        <div class="info">
+            <h3>Dress 1</h3>
+            <p class="price">R150</p>
+            <a class="btn whatsapp" href="https://wa.me/27732176610?text=Hi%20MM%20VISION%20HUB,%20I%20want%20Dress%201">Order on WhatsApp</a>
+            <a class="btn call" href="tel:0732176610">Call Now</a>
+        </div>
+    </div>
+
+    <div class="product">
+        <img src="women2.png" alt="Dress 2">
+        <div class="info">
+            <h3>Dress 2</h3>
+            <p class="price">R150</p>
+            <a class="btn whatsapp" href="https://wa.me/27732176610?text=Hi%20MM%20VISION%20HUB,%20I%20want%20Dress%202">Order on WhatsApp</a>
+            <a class="btn call" href="tel:0732176610">Call Now</a>
+        </div>
+    </div>
+
+    <div class="product">
+        <img src="women3.png" alt="Dress 3">
+        <div class="info">
+            <h3>Dress 3</h3>
+            <p class="price">R150</p>
+            <a class="btn whatsapp" href="https://wa.me/27732176610?text=Hi%20MM%20VISION%20HUB,%20I%20want%20Dress%203">Order on WhatsApp</a>
+            <a class="btn call" href="tel:0732176610">Call Now</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <h3>MM VISION HUB</h3>
+    <p>WhatsApp: 073 217 6610</p>
+    <p>Call: 073 217 6610</p>
+    <p>Nationwide Delivery Available</p>
+</footer>
+
+</body>
+</html>
