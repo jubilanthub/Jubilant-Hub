@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Women's Clothing - Jubilant Hub</title>
+<title>MM VISION HUB</title>
 
 <style>
 *{
@@ -18,10 +18,66 @@ background:#000;
 color:#fff;
 }
 
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+#loader img{
+width:180px;
+height:auto;
+margin-bottom:20px;
+}
+
+#loader h1{
+color:#D4AF37;
+font-size:28px;
+text-align:center;
+}
+
+.header{
+text-align:center;
+padding:20px;
+}
+
+.logo{
+width:120px;
+height:auto;
+display:block;
+margin:auto;
+margin-bottom:10px;
+}
+
 h1{
 text-align:center;
 color:#D4AF37;
-padding:20px;
+}
+
+.top-menu{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+padding:15px;
+}
+
+.menu-btn{
+background:#D4AF37;
+color:#000;
+border:none;
+padding:12px 18px;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
 }
 
 .back{
@@ -71,17 +127,6 @@ color:#D4AF37;
 margin-bottom:5px;
 }
 
-.menu-btn{
-background:#D4AF37;
-color:#000;
-border:none;
-padding:12px 20px;
-margin:10px;
-font-weight:bold;
-border-radius:8px;
-cursor:pointer;
-}
-
 .info-box{
 display:none;
 background:#111;
@@ -95,16 +140,56 @@ border-radius:10px;
 color:#D4AF37;
 margin-bottom:10px;
 }
+
+footer{
+background:#111;
+padding:20px;
+text-align:center;
+color:#D4AF37;
+font-weight:bold;
+margin-top:30px;
+}
 </style>
 </head>
 
 <body>
 
-<h1>Women's Clothing Collection</h1>
+<div id="loader">
+<img src="images/logo.png" alt="Logo">
+<h1>Michael Maluleka Vision Hub</h1>
+</div>
 
-<a href="index.html" class="back">← Back to Home</a>
+<div class="header">
+<img src="images/logo.png" alt="Logo" class="logo">
+<h1>MM VISION HUB</h1>
+</div>
+
+<div class="top-menu">
+
+<button onclick="toggleSection('delivery')" class="menu-btn">
+🚚 Delivery Methods
+</button>
+
+<button onclick="toggleSection('banking')" class="menu-btn">
+🏦 Banking Details
+</button>
+
+<button onclick="toggleSection('about')" class="menu-btn">
+ℹ️ About Us
+</button>
+
+<button onclick="toggleSection('terms')" class="menu-btn">
+📜 Terms & Conditions
+</button>
+
+</div>
+
+<a href="index.html" class="back">
+← Back To Home
+</a>
 
 <div class="gallery">
+<!-- WOMEN PRODUCTS 1 - 20 -->
 
 <div class="product">
 <img src="images/women1.png" alt="Women 1">
@@ -195,6 +280,7 @@ margin-bottom:10px;
 <p>Size: Free Size</p>
 </div>
 </div>
+
 <div class="product">
 <img src="images/women11.png" alt="Women 11">
 <div class="info">
@@ -284,6 +370,7 @@ margin-bottom:10px;
 <p>Size: Free Size</p>
 </div>
 </div>
+<!-- WOMEN PRODUCTS 21 - 40 -->
 
 <div class="product">
 <img src="images/women21.png" alt="Women 21">
@@ -374,6 +461,7 @@ margin-bottom:10px;
 <p>Size: Free Size</p>
 </div>
 </div>
+
 <div class="product">
 <img src="images/women31.png" alt="Women 31">
 <div class="info">
@@ -463,6 +551,7 @@ margin-bottom:10px;
 <p>Size: Free Size</p>
 </div>
 </div>
+<!-- WOMEN PRODUCTS 41 - 60 -->
 
 <div class="product">
 <img src="images/women41.png" alt="Women 41">
@@ -553,6 +642,7 @@ margin-bottom:10px;
 <p>Size: Free Size</p>
 </div>
 </div>
+
 <div class="product">
 <img src="images/women51.png" alt="Women 51">
 <div class="info">
@@ -642,6 +732,7 @@ margin-bottom:10px;
 <p>Size: Free Size</p>
 </div>
 </div>
+<!-- WOMEN PRODUCTS 61 - 80 -->
 
 <div class="product">
 <img src="images/women61.png" alt="Women 61">
@@ -823,241 +914,9 @@ margin-bottom:10px;
 </div>
 </div>
 
-<!-- WATCHES -->
-
-<div class="product">
-<img src="images/watch1.png" alt="Watch 1">
-<div class="info">
-<h3>Watch 1</h3>
-<p>Price: R60</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/watch2.png" alt="Watch 2">
-<div class="info">
-<h3>Watch 2</h3>
-<p>Price: R220</p>
-</div>
-</div>
-
-<!-- BAGS -->
-
-<div class="product">
-<img src="images/bag1.png" alt="Bag 1">
-<div class="info">
-<h3>Bag 1</h3>
-<p>Price: R110</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/bag2.png" alt="Bag 2">
-<div class="info">
-<h3>Bag 2</h3>
-<p>Price: R250</p>
-</div>
-</div>
-<!-- SNEAKERS -->
-
-<div class="product">
-<img src="images/sneakers1.png" alt="Sneakers 1">
-<div class="info">
-<h3>Sneakers 1</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/sneakers2.png" alt="Sneakers 2">
-<div class="info">
-<h3>Sneakers 2</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/sneakers3.png" alt="Sneakers 3">
-<div class="info">
-<h3>Sneakers 3</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/sneakers4.png" alt="Sneakers 4">
-<div class="info">
-<h3>Sneakers 4</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/sneakers5.png" alt="Sneakers 5">
-<div class="info">
-<h3>Sneakers 5</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/sneakers6.png" alt="Sneakers 6">
-<div class="info">
-<h3>Sneakers 6</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/sneakers7.png" alt="Sneakers 7">
-<div class="info">
-<h3>Sneakers 7</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/sneakers8.png" alt="Sneakers 8">
-<div class="info">
-<h3>Sneakers 8</h3>
-<p>Price: R350</p>
-<p>Sizes: 3,4,5,6,7,8</p>
-</div>
-</div>
-
-<!-- SLIPERS -->
-
-<div class="product">
-<img src="images/slipers1.png" alt="Slipers 1">
-<div class="info">
-<h3>Slipers 1</h3>
-<p>Price: R160</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/slipers2.png" alt="Slipers 2">
-<div class="info">
-<h3>Slipers 2</h3>
-<p>Price: R160</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/slipers3.png" alt="Slipers 3">
-<div class="info">
-<h3>Slipers 3</h3>
-<p>Price: R160</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/slipers4.png" alt="Slipers 4">
-<div class="info">
-<h3>Slipers 4</h3>
-<p>Price: R160</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/slipers5.png" alt="Slipers 5">
-<div class="info">
-<h3>Slipers 5</h3>
-<p>Price: R160</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/slipers6.png" alt="Slipers 6">
-<div class="info">
-<h3>Slipers 6</h3>
-<p>Price: R160</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/slipers7.png" alt="Slipers 7">
-<div class="info">
-<h3>Slipers 7</h3>
-<p>Price: R160</p>
-</div>
-</div>
-
-<!-- LED PRODUCTS -->
-
-<div class="product">
-<img src="images/led1.png" alt="LED 1">
-<div class="info">
-<h3>LED 1</h3>
-<p>Price: R120</p>
-</div>
-</div>
-
-<div class="product">
-<img src="images/led2.png" alt="LED 2">
-<div class="info">
-<h3>LED 2</h3>
-</div>
-</div>
-
-<div class="product">
-<img src="images/led3.png" alt="LED 3">
-<div class="info">
-<h3>LED 3</h3>
-</div>
-</div>
-
-<div class="product">
-<img src="images/led4.png" alt="LED 4">
-<div class="info">
-<h3>LED 4</h3>
-</div>
-</div>
-
-<div class="product">
-<img src="images/led5.png" alt="LED 5">
-<div class="info">
-<h3>LED 5</h3>
-</div>
-</div>
-
-<div class="product">
-<img src="images/led6.png" alt="LED 6">
-<div class="info">
-<h3>LED 6</h3>
-</div>
-</div>
-
 </div>
 
 <hr style="margin:40px 20px;border:1px solid #D4AF37;">
-
-<div style="text-align:center;padding:20px;">
-
-<button onclick="toggleSection('delivery')" class="menu-btn">
-🚚 Delivery Methods
-</button>
-
-<button onclick="toggleSection('banking')" class="menu-btn">
-🏦 Banking Details
-</button>
-
-<button onclick="toggleSection('about')" class="menu-btn">
-ℹ️ About Us
-</button>
-
-<button onclick="toggleSection('terms')" class="menu-btn">
-📜 Terms & Conditions
-</button>
-
-</div>
 
 <div id="delivery" class="info-box">
 <h2>Delivery Methods</h2>
@@ -1076,8 +935,9 @@ margin-bottom:10px;
 <div id="about" class="info-box">
 <h2>About Us</h2>
 <p>
-Jubilant Hub offers affordable clothing, sneakers, bags,
-watches and accessories with reliable delivery services.
+Michael Maluleka Vision Hub offers affordable clothing,
+sneakers, bags, watches and accessories with reliable
+delivery services.
 </p>
 </div>
 
@@ -1090,20 +950,40 @@ watches and accessories with reliable delivery services.
 <p>5. No refunds after successful delivery.</p>
 </div>
 
+<footer>
+Michael Maluleka Vision Hub
+</footer>
+
 <script>
+
+window.onload=function(){
+setTimeout(function(){
+document.getElementById("loader").style.display="none";
+},5000);
+}
+
 function toggleSection(id){
+
 const sections=document.querySelectorAll('.info-box');
 
 sections.forEach(section=>{
+
 if(section.id===id){
+
 section.style.display=
 section.style.display==='block'
 ?'none':'block';
+
 }else{
+
 section.style.display='none';
+
 }
+
 });
+
 }
+
 </script>
 
 </body>
