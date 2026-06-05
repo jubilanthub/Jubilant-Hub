@@ -3,173 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MM Vision Hub</title>
+<title>MM VISION HUB</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{background:#0b0b0b;color:#fff;}
-#loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;}
-#loader img{width:140px;height:140px;object-fit:contain;margin-bottom:20px;border-radius:10px;}
-#main{display:none;}
-.topinfo{background:#111;padding:20px;text-align:center;border-bottom:2px solid #D4AF37;}
-.topbar{background:#111;padding:15px;text-align:center;border-bottom:2px solid #D4AF37;}
-.topbar img{width:70px;height:70px;object-fit:contain;vertical-align:middle;margin-right:10px;border-radius:8px;}
-h1,h2{color:#D4AF37;}
-.hero{text-align:center;padding:20px;}
-#searchInput{width:90%;padding:12px;margin:10px auto;display:block;border:none;border-radius:20px;outline:none;background:#222;color:#fff;}
-.categories{background:#111;padding:10px;text-align:center;border-bottom:2px solid #D4AF37;}
-.categories button,button{background:#D4AF37;border:none;padding:10px;margin:4px;border-radius:6px;font-weight:bold;cursor:pointer;color:#000;}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px;}
-.product{background:#151515;border-radius:10px;overflow:hidden;transition:transform 0.2s;}
-.product:hover{transform:scale(1.02);}
-.product img{width:100%;height:180px;object-fit:cover;background:#222;}
-.info{padding:10px;}
-.price{color:#D4AF37;font-weight:bold;margin:5px 0;}
-.cart{position:fixed;left:15px;bottom:15px;background:#D4AF37;color:#000;padding:10px 15px;border-radius:10px;font-weight:bold;z-index:999;}
-.orderbtn{position:fixed;left:15px;bottom:65px;z-index:999;}
-.whatsapp{position:fixed;right:15px;bottom:15px;background:#25D366;color:#fff;padding:15px;border-radius:50%;text-decoration:none;font-size:22px;z-index:999;}
-.footer-box{background:#111;padding:20px;margin:15px;border-radius:10px;border:1px solid #D4AF37;}
-@media(max-width:600px){.gallery{grid-template-columns:repeat(1,1fr);}}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:#fff;
+}
+
+/* ================= LOADER ================= */
+#loader{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    text-align:center;
+}
+
+#loader img{
+    width:180px;
+    animation:pulse 1.5s infinite;
+}
+
+#loader h1{
+    color:#D4AF37;
+    margin-top:20px;
+    font-size:28px;
+}
+
+#loader p{
+    margin-top:10px;
+    color:#D4AF37;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+/* MAIN SITE */
+#main{
+    display:none;
+}
+
+/* TOP INFO BAR (NEW ADDED) */
+.topinfo{
+    background:#111;
+    padding:15px;
+    text-align:center;
+    border-bottom:2px solid #D4AF37;
+}
+
+.topinfo h2{
+    color:#D4AF37;
+    margin-bottom:5px;
+}
+
+.topinfo p{
+    font-size:13px;
+    color:#ccc;
+    line-height:1.6;
+}
+
+/* TOP BAR */
+.topbar{
+    position:sticky;
+    top:0;
+    background:#111;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #D4AF37;
+}
+
+.topbar img{
+    width:50px;
+}
+
+.topbar h1{
+    font-size:18px;
+    color:#D4AF37;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:40px 20px;
+    background:#111;
+}
+
+.hero h2{
+    color:#D4AF37;
+    font-size:28px;
+}
+
+/* SEARCH */
+#searchInput{
+    width:90%;
+    padding:12px;
+    margin:15px auto;
+    display:block;
+    border-radius:20px;
+    border:none;
+}
+
+/* PRODUCTS */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    padding:10px;
+}
+
+.product{
+    background:#151515;
+    border-radius:10px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.product:hover{
+    transform:scale(1.03);
+}
+
+.product img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.info{
+    padding:10px;
+}
+
+.price{
+    color:#D4AF37;
+    font-weight:bold;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#D4AF37;
+    color:#000;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* CART */
+.cart{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#D4AF37;
+    color:#000;
+    padding:10px 15px;
+    border-radius:20px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    text-align:center;
+    line-height:60px;
+    font-size:28px;
+    color:#fff;
+    text-decoration:none;
+}
 </style>
 </head>
+
 <body>
 
+<!-- LOADER -->
 <div id="loader">
-<img src="png.png" alt="Logo" onerror="this.style.display='none'">
-<h1>Michael Maluleka Vision Hub</h1>
-<p>Loading Store...</p>
+    <img src="logo png.png" alt="Logo">
+    <h1>MM VISION HUB</h1>
+    <p>Michael Maluleka Vision Hub</p>
+    <p style="margin-top:10px;color:#aaa;">Loading your fashion store...</p>
 </div>
 
+<!-- MAIN -->
 <div id="main">
 
+<!-- TOP INFO (ADDED: BANK + ABOUT + TERMS) -->
 <div class="topinfo">
-<h2>Banking Details</h2>
-<p>MR KM MALULEKA<br>CAPITEC<br>2189801660</p>
-<br>
-<h2>Delivery Method</h2>
-<p>Paxi Large Plastic - R140</p>
-<p>Paxi Standard Plastic - R110</p>
-<p>Delivery Around Mapela - R50</p>
+    <h2>Banking Details</h2>
+    <p>
+        MR KM MALULEKA<br>
+        CAPITEC<br>
+        2189801660
+    </p>
+
+    <p style="margin-top:10px;">
+        <strong>About Us:</strong> MM Vision Hub is an online clothing store offering affordable women's fashion with nationwide delivery.
+    </p>
+
+    <p style="margin-top:10px;">
+        <strong>Terms:</strong> Payment before delivery. Proof of payment must be sent via WhatsApp. Delivery takes 3–5 working days.
+    </p>
 </div>
 
-<!-- ABOUT + TERMS MOVED TO TOP -->
-<div class="footer-box">
-<h2>About Us</h2>
-<p>Michael Maluleka Vision Hub is committed to providing quality products, reliable service, and affordable delivery options. We aim to make shopping simple, secure, and convenient for all customers.</p>
-
-<h2 style="margin-top:20px;">Terms & Conditions</h2>
-<ul style="padding-left:20px;line-height:1.8;">
-<li>All orders are subject to product availability.</li>
-<li>Payments must be confirmed before dispatch.</li>
-<li>Delivery fees apply according to the selected delivery method.</li>
-<li>Customers must provide correct contact and delivery information.</li>
-<li>Returns or exchanges are subject to approval and product condition.</li>
-<li>Michael Maluleka Vision Hub reserves the right to update pricing and policies without notice.</li>
-<li>By placing an order you agree to these terms and conditions.</li>
-</ul>
-</div>
-
+<!-- TOP BAR -->
 <div class="topbar">
-<img src="png.png" alt="Logo" onerror="this.style.display='none'">
-<h1 style="display:inline-block;">Michael Maluleka Vision Hub</h1>
+    <img src="logo png.png">
+    <h1>MM VISION HUB</h1>
 </div>
 
-<div class="hero"><h2>NEW COLLECTION</h2></div>
-
-<input id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
-
-<div class="categories">
-<button onclick="showCategory('dresses')">👗 Dresses</button>
-<button onclick="showCategory('shoes')">👡 Shoes</button>
-<button onclick="showCategory('men')">👔 Men Clothes</button>
-<button onclick="showCategory('sneakers')">👟 Sneakers</button>
-<button onclick="showCategory('slippers')">🩴 Slippers</button>
-<button onclick="showCategory('other')">👜 Other</button>
+<div class="hero">
+    <h2>NEW WOMEN'S COLLECTION</h2>
 </div>
 
-<div id="gallery" class="gallery"></div>
+<input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
 
-<button class="orderbtn" onclick="placeOrder()">Place Order</button>
-<div class="cart">🛒 <span id="cartCount">0</span></div>
-<a class="whatsapp" href="https://wa.me/27732176610" target="_blank">💬</a>
+<div class="gallery" id="gallery"></div>
+
+<div class="cart">
+🛒 Items: <span id="cartCount">0</span>
+</div>
+
+<a href="https://wa.me/27732176610" class="whatsapp">💬</a>
 
 </div>
 
 <script>
-// Hide loader after 2.5s
-window.addEventListener("load", () => {
-setTimeout(() => {
-document.getElementById("loader").style.display="none";
-document.getElementById("main").style.display="block";
-}, 2500);
-});
 
-let cartItems=[];
+/* LOADER TIMER (6 SECONDS) */
+setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+    document.getElementById("main").style.display="block";
+},6000);
+
+/* PRODUCTS */
+let cart=0;
 const gallery=document.getElementById("gallery");
 
-const categories={
-dresses:[],shoes:[],men:[],sneakers:[],slippers:[],other:[]
-};
-
-// Using your uploaded images now
 for(let i=1;i<=80;i++){
-categories.dresses.push({n:'Dress '+i,p:'R150',img:'women'+i+'.png'});
-}
-for(let i=1;i<=6;i++){
-categories.shoes.push({n:'Shoe '+i,p:'R250',img:'shoe'+i+'.png'});
-}
-for(let i=1;i<=30;i++){
-categories.men.push({n:'Men Outfit '+i,p:'R350',img:'Men'+i+'.png'});
-}
-for(let i=1;i<=30;i++){
-categories.sneakers.push({n:'Sneaker '+i,p:'R300',img:'sneakers'+i+'.png'});
-}
-for(let i=1;i<=6;i++){
-categories.slippers.push({n:'Slipper '+i,p:'R160',img:'Slippers'+i+'.png'});
-}
-for(let i=1;i<=30;i++){
-categories.other.push({n:'Other '+i,p:'R200',img:'Other'+i+'.png'});
+    gallery.innerHTML+=`
+    <div class="product">
+        <img src="women${i}.png">
+        <div class="info">
+            <h3>Dress ${i}</h3>
+            <p class="price">R150</p>
+
+            <button onclick="buy(${i})">Buy Now</button>
+        </div>
+    </div>`;
 }
 
-function showCategory(cat){
-gallery.innerHTML='';
-categories[cat].forEach(item=>{
-gallery.innerHTML += `
-<div class="product">
-<img src="${item.img}" alt="${item.n}" onerror="this.style.opacity='0.3'">
-<div class="info">
-<h3>${item.n}</h3>
-<p class="price">${item.p}</p>
-<button onclick="buy('${item.n}')">Add To Cart</button>
-</div>
-</div>
-`;
-});
+function buy(i){
+    cart++;
+    document.getElementById("cartCount").innerText=cart;
+
+    let msg="Hello MM VISION HUB, I want Dress "+i;
+    window.open("https://wa.me/27732176610?text="+encodeURIComponent(msg));
 }
 
-function buy(item){
-cartItems.push(item);
-document.getElementById("cartCount").innerText = cartItems.length;
-}
-
-function placeOrder(){
-if(cartItems.length===0){alert("Cart is empty");return;}
-let msg = "Hello Michael Maluleka Vision Hub,%0A%0A";
-msg += "I want to order:%0A";
-cartItems.forEach((item,index)=>{
-msg += (index+1)+". "+item+"%0A";
-});
-msg += "%0ATotal items: "+cartItems.length;
-window.open("https://wa.me/27732176610?text="+msg, "_blank");
-}
-
+/* SEARCH */
 function searchProducts(){
-let value = document.getElementById("searchInput").value.toUpperCase();
-document.querySelectorAll(".product").forEach(product=>{
-product.style.display = product.innerText.toUpperCase().includes(value)? "" : "none";
-});
+    let input=document.getElementById("searchInput").value.toUpperCase();
+    let products=document.getElementsByClassName("product");
+
+    for(let i=0;i<products.length;i++){
+        let title=products[i].getElementsByTagName("h3")[0];
+        products[i].style.display=
+        title.innerText.toUpperCase().includes(input)?"":"none";
+    }
 }
 
-showCategory("dresses");
 </script>
+
 </body>
 </html>
