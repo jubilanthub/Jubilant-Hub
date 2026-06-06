@@ -116,6 +116,11 @@ height:250px;
 object-fit:cover;
 }
 
+/* SPEED FIX */
+.product img{
+loading:lazy;
+}
+
 .info{
 padding:10px;
 text-align:center;
@@ -222,17 +227,17 @@ placeholder="Search products..." onkeyup="searchProducts()">
 <!-- MENU -->
 <div class="top-menu">
 
-<button class="menu-btn" onclick="showSection('women')">Women</button>
-<button class="menu-btn" onclick="showSection('sneakers')">Sneakers</button>
-<button class="menu-btn" onclick="showSection('slippers')">Slippers</button>
-<button class="menu-btn" onclick="showSection('bags')">Bags</button>
-<button class="menu-btn" onclick="showSection('watches')">Watches</button>
-<button class="menu-btn" onclick="showSection('tight')">Women Tight</button>
-<button class="menu-btn" onclick="showSection('tracksuits')">Tracksuits</button>
-<button class="menu-btn" onclick="showSection('led')">LED Lights</button>
-<button class="menu-btn" onclick="showSection('menclothes')">Men Clothes</button>
-<button class="menu-btn" onclick="showSection('womenclothes')">Women Clothes</button>
-<button class="menu-btn" onclick="showSection('others')">Others</button>
+<button class="menu-btn" onclick="openCategory('women', loadWomen)">Women</button>
+<button class="menu-btn" onclick="openCategory('sneakers', loadSneakers)">Sneakers</button>
+<button class="menu-btn" onclick="openCategory('slippers', loadSlippers)">Slippers</button>
+<button class="menu-btn" onclick="openCategory('bags', loadBags)">Bags</button>
+<button class="menu-btn" onclick="openCategory('watches', loadWatches)">Watches</button>
+<button class="menu-btn" onclick="openCategory('tight', loadTight)">Women Tight</button>
+<button class="menu-btn" onclick="openCategory('tracksuits', loadTracksuits)">Tracksuits</button>
+<button class="menu-btn" onclick="openCategory('led', loadLED)">LED Lights</button>
+<button class="menu-btn" onclick="openCategory('menclothes', loadMen)">Men Clothes</button>
+<button class="menu-btn" onclick="openCategory('womenclothes', loadWomenClothes)">Women Clothes</button>
+<button class="menu-btn" onclick="openCategory('others', loadOthers)">Others</button>
 
 <button class="menu-btn" onclick="toggleSection('delivery')">Delivery</button>
 <button class="menu-btn" onclick="toggleSection('banking')">Payment Method</button>
@@ -241,7 +246,7 @@ placeholder="Search products..." onkeyup="searchProducts()">
 
 </div>
 
-<!-- PRODUCT SECTIONS -->
+<!-- PRODUCT SECTIONS (EMPTY FIRST = FAST LOAD) -->
 <div id="women" class="section gallery"></div>
 <div id="sneakers" class="section gallery"></div>
 <div id="slippers" class="section gallery"></div>
@@ -257,16 +262,16 @@ placeholder="Search products..." onkeyup="searchProducts()">
 <!-- INFO BOXES -->
 <div id="delivery" class="info-box">
 <h2>Delivery Methods</h2>
-<p><strong>Around Mapela:</strong> R50</p>
-<p><strong>PAXI Standard:</strong> R110</p>
-<p><strong>PAXI Large:</strong> R140</p>
+<p>Around Mapela: R50</p>
+<p>PAXI Standard: R110</p>
+<p>PAXI Large: R140</p>
 </div>
 
 <div id="banking" class="info-box">
 <h2>Payment Method</h2>
-<p>Account Name: MR KM MALULEKA</p>
-<p>Bank: CAPITEC</p>
-<p>Account Number: 2189801660</p>
+<p>MR KM MALULEKA</p>
+<p>CAPITEC</p>
+<p>2189801660</p>
 <p style="color:red;font-weight:bold;">
 Send proof of payment on WhatsApp. Beware of scams.
 </p>
@@ -274,36 +279,49 @@ Send proof of payment on WhatsApp. Beware of scams.
 
 <div id="about" class="info-box">
 <h2>About Us</h2>
-<p>
-Michael Maluleka Vision Hub sells affordable fashion:
-clothes, sneakers, bags, watches, LED lights and more.
-</p>
+<p>Affordable fashion store: clothes, sneakers, bags, watches & more.</p>
 </div>
 
 <div id="terms" class="info-box">
 <h2>Terms & Conditions</h2>
-<p>Payment must be made before delivery.</p>
-<p>Delivery fees are separate.</p>
-<p>No refunds after delivery.</p>
-<p>Colours may differ from images.</p>
+<p>Payment before delivery. No refunds after delivery.</p>
 </div>
 <script>
 
 let cart = [];
+let loaded = {};
+
+/* ================= OPEN CATEGORY (FAST SYSTEM) ================= */
+function openCategory(id, loaderFn){
+
+document.querySelectorAll(".section").forEach(s=>{
+s.style.display = "none";
+});
+
+let box = document.getElementById(id);
+box.style.display = "grid";
+
+/* load only once */
+if(!loaded[id]){
+loaderFn(box);
+loaded[id] = true;
+}
+
+}
 
 /* ================= CREATE PRODUCT ================= */
-function createProduct(container, name, image, price = '', size = '', extra = '') {
+function createProduct(container, name, image, price='', size='', extra=''){
 
-let card = document.createElement('div');
-card.className = 'product';
+let card = document.createElement("div");
+card.className = "product";
 
 card.innerHTML = `
-<img src="${image}" alt="${name}">
+<img src="${image}" alt="${name}" loading="lazy">
 <div class="info">
 <h3>${name}</h3>
-${price ? `<p>${price}</p>` : ''}
-${size ? `<p>${size}</p>` : ''}
-${extra ? `<p>${extra}</p>` : ''}
+${price?`<p>${price}</p>`:''}
+${size?`<p>${size}</p>`:''}
+${extra?`<p>${extra}</p>`:''}
 <button class="cart-btn" onclick="addToCart('${name} ${price}')">
 Add To Cart
 </button>
@@ -313,96 +331,102 @@ Add To Cart
 container.appendChild(card);
 }
 
-/* ================= PRODUCTS ================= */
+/* ================= LOAD PRODUCTS (ONLY WHEN CLICKED) ================= */
 
 /* WOMEN */
-const women = document.getElementById('women');
+function loadWomen(box){
 for(let i=1;i<=80;i++){
-createProduct(women,'Women '+i,'women'+i+'.png','R150','Free Size');
+createProduct(box,"Women "+i,"women"+i+".png","R150","Free Size");
+}
 }
 
 /* SNEAKERS */
-const sneakers = document.getElementById('sneakers');
+function loadSneakers(box){
 for(let i=1;i<=30;i++){
-let price='';
-if(i<=6) price='R350';
-
-createProduct(sneakers,'Sneakers '+i,'sneakers'+i+'.png',price,'Size 3 - 8');
+let price = i<=6 ? "R350" : "";
+createProduct(box,"Sneakers "+i,"sneakers"+i+".png",price,"Size 3 - 8");
+}
 }
 
 /* SLIPPERS */
-const slippers = document.getElementById('slippers');
+function loadSlippers(box){
 for(let i=1;i<=30;i++){
-let price='';
-if(i<=6) price='R160';
-
-createProduct(slippers,'Slippers '+i,'slippers'+i+'.png',price,'Free Size');
+let price = i<=6 ? "R160" : "";
+createProduct(box,"Slippers "+i,"slippers"+i+".png",price,"Free Size");
+}
 }
 
 /* BAGS */
-const bags = document.getElementById('bags');
+function loadBags(box){
 for(let i=1;i<=30;i++){
-let price='';
-if(i===1) price='R110';
-if(i===2) price='R250';
-if(i===4) price='R90';
+let price="";
+if(i===1) price="R110";
+if(i===2) price="R250";
+if(i===4) price="R90";
 
-createProduct(bags,'Bag '+i,'bag'+i+'.png',price);
+createProduct(box,"Bag "+i,"bag"+i+".png",price);
+}
 }
 
 /* WATCHES */
-const watches = document.getElementById('watches');
+function loadWatches(box){
 for(let i=1;i<=30;i++){
-let price='';
-if(i===1) price='R60';
-if(i===2) price='R230';
+let price="";
+if(i===1) price="R60";
+if(i===2) price="R230";
 
-createProduct(watches,'Watch '+i,'watch'+i+'.png',price);
+createProduct(box,"Watch "+i,"watch"+i+".png",price);
+}
 }
 
 /* WOMEN TIGHT */
-const tight = document.getElementById('tight');
+function loadTight(box){
 for(let i=1;i<=5;i++){
-let price='';
-if(i===1) price='R250 for 3';
-if(i===2) price='R200 for 3';
+let price="";
+if(i===1) price="R250 for 3";
+if(i===2) price="R200 for 3";
 
-createProduct(tight,'Women Tight '+i,'women tight'+i+'.png',price);
+createProduct(box,"Women Tight "+i,"women tight"+i+".png",price);
+}
 }
 
 /* TRACKSUITS */
-const tracksuits = document.getElementById('tracksuits');
+function loadTracksuits(box){
 for(let i=1;i<=60;i++){
-createProduct(tracksuits,'Tracksuit '+i,'tracksuit'+i+'.png','','Size S - XL');
+createProduct(box,"Tracksuit "+i,"tracksuit"+i+".png","","Size S - XL");
+}
 }
 
 /* LED */
-const led = document.getElementById('led');
+function loadLED(box){
 for(let i=1;i<=3;i++){
-let price='';
-if(i===1) price='R130 (5 Metre)';
+let price="";
+if(i===1) price="R130 (5 Metre)";
 
-createProduct(led,'LED '+i,'led'+i+'.png',price);
+createProduct(box,"LED "+i,"led"+i+".png",price);
+}
 }
 
 /* MEN CLOTHES */
-const menclothes = document.getElementById('menclothes');
+function loadMen(box){
 for(let i=1;i<=100;i++){
-createProduct(menclothes,'Men Clothes '+i,'menclothes'+i+'.png','','Size S - XL');
+createProduct(box,"Men Clothes "+i,"menclothes"+i+".png","","Size S - XL");
+}
 }
 
 /* WOMEN CLOTHES */
-const womenclothes = document.getElementById('womenclothes');
+function loadWomenClothes(box){
 for(let i=1;i<=100;i++){
-createProduct(womenclothes,'Women Clothes '+i,'womenclothes'+i+'.png','','Size S - XL');
+createProduct(box,"Women Clothes "+i,"womenclothes"+i+".png","","Size S - XL");
+}
 }
 
 /* OTHERS */
-const others = document.getElementById('others');
+function loadOthers(box){
 for(let i=1;i<=50;i++){
-createProduct(others,'Others '+i,'others'+i+'.png');
+createProduct(box,"Others "+i,"others"+i+".png");
 }
-
+}
 
 /* ================= CART ================= */
 function addToCart(item){
@@ -415,20 +439,19 @@ document.getElementById("cartItems").innerHTML = cart.join("<br>");
 calculateTotal();
 }
 
-/* ================= TOTAL CALCULATOR ================= */
+/* ================= TOTAL ================= */
 function calculateTotal(){
 
 let total = 0;
 
-cart.forEach(item => {
+cart.forEach(item=>{
 let match = item.match(/R(\d+)/);
 if(match){
 total += parseInt(match[1]);
 }
 });
 
-document.getElementById("totalPrice").innerText =
-"Total: R" + total;
+document.getElementById("totalPrice").innerText = "Total: R" + total;
 
 return total;
 }
@@ -439,8 +462,7 @@ function searchProducts(){
 let input = document.getElementById("searchInput").value.toLowerCase();
 
 document.querySelectorAll(".product").forEach(p=>{
-p.style.display =
-p.innerText.toLowerCase().includes(input) ? "block" : "none";
+p.style.display = p.innerText.toLowerCase().includes(input) ? "block" : "none";
 });
 
 }
@@ -456,24 +478,13 @@ box.style.display = (box.id === id)
 
 }
 
-/* ================= SHOW SECTION ================= */
-function showSection(id){
-
-document.querySelectorAll(".section").forEach(s=>{
-s.style.display = "none";
-});
-
-document.getElementById(id).style.display = "grid";
-
-}
-
-/* ================= WHATSAPP ORDER ================= */
+/* ================= WHATSAPP ================= */
 function sendWhatsApp(){
 
 let order = "";
 
-cart.forEach(item=>{
-order += item + "%0A";
+cart.forEach(i=>{
+order += i + "%0A";
 });
 
 window.open(
@@ -483,32 +494,26 @@ window.open(
 
 }
 
-/* ================= CAPITEC PAYMENT ================= */
+/* ================= CAPITEC PAY ================= */
 function capitecPay(){
 
 let total = calculateTotal();
 
-let msg =
-"Pay%20to%20MR%20KM%20MALULEKA%0A" +
-"Capitec:%202189801660%0A%0A" +
-"Total:%20R" + total;
-
 window.open(
-"https://wa.me/27732176610?text=" + msg,
+"https://wa.me/27732176610?text=Pay%20MR%20KM%20MALULEKA%20Capitec%202189801660%20Total%20R"+total,
 "_blank"
 );
 
 }
 
-/* ================= LOADER ================= */
+/* ================= START ================= */
 window.onload = function(){
-
-showSection('women');
+document.getElementById("women").style.display = "grid";
+loaded["women"] = false;
 
 setTimeout(()=>{
 document.getElementById("loader").style.display = "none";
-},3000);
-
+},2000);
 }
 
 </script>
